@@ -41,7 +41,6 @@ MATLAB, pero esa combinación todavía no se ha probado.
 | `src/02_sistemas_lineales` | `sustitucion_adelante`, `sustitucion_atras`, `gauss_naive`, `gauss_pivoteo`, `lu_factorizacion`, `resolver_lu`, `jacobi`, `gauss_seidel` |
 | `src/03_optimizacion` | `seccion_aurea` (1D, sin restricciones) |
 | `src/04_interpolacion_regresion` | `lagrange` |
-| `src/05_edos` | `euler_explicito`, `heun` (escalares y sistemas), `euler_implicito` (sistemas lineales `y' = A y`) |
 | `tests/` | Pruebas automáticas |
 | `ejemplos/` | Ejemplos con problemas de ingeniería química y alimentos |
 
@@ -79,8 +78,10 @@ resultados y, en varios casos, grafican):
 | `ej_08_ajuste_de_curvas` | Regresión simple, polinómica y múltiple con ecuaciones normales |
 | `ej_09_diferenciacion_numerica` | 1ª y 2ª derivada con diferencias finitas, orden de convergencia (fórmulas en el script) |
 | `ej_10_integracion_numerica` | Trapecio, Simpson 1/3, 3/8 y Boole (fórmulas de una aplicación) con error relativo verdadero |
-| `ej_11_edo_simple` | Reacción de 1er orden con los tres métodos |
-| `ej_12_sistema_de_edos` | Reducción de orden y modelo compartimental |
+| `ej_11_edo_lineal` | EDO lineal (reacción de 1er orden): Euler explícito, implícito y Heun |
+| `ej_12_edo_no_lineal` | EDO no lineal (reacción de 2º orden): Euler implícito con Newton |
+| `ej_13_edo_segundo_orden_reduccion` | Oscilador amortiguado: reducción de orden (u1, u2) |
+| `ej_14_sistema_edo_lineal` | Sistema lineal: modelo compartimental |
 
 ## Pruebas (ignorar esto si eres alumno)
 
@@ -99,8 +100,7 @@ octave --no-gui --eval "run('tests/run_all_tests.m')"
 - Nombres de funciones en español, `snake_case`, un método por archivo.
 - Los scripts no llevan `addpath`: se asume que se ejecutó `iniciar` al abrir MATLAB/Octave.
 - Compatible con MATLAB y Octave (sin sintaxis exclusiva de uno u otro).
-- Sistemas de EDO: `f(t, y)` devuelve columna; la salida `Y` tiene una fila por instante.
-- Diferenciación e integración numérica no tienen funciones en `src/`: las fórmulas se escriben directamente en `ej_09` y `ej_10`.
+- Diferenciación, integración y EDOs no tienen funciones en `src/`: los métodos se escriben directamente en los scripts (`ej_09` a `ej_14`). En EDOs la historia se guarda en una matriz de (n+1) × m: una fila por instante y una columna por variable.
 
 ## Agregar un método nuevo (Ignorar esto si eres alumno)
 
